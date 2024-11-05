@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.thales.idverification.modules.login.ui.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <argument
+            android:name="loginStatus"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_registrationFragment_to_registrationSuccessFragment"
+            app:destination="@id/registrationSuccessFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.thales.idverification.modules.login.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <argument
+            android:name="loginStatus"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterOTPFragment"
+        android:name="com.thales.idverification.modules.login.ui.EnterOTPFragment"
+        android:label="fragment_enter_otp"
+        tools:layout="@layout/fragment_enter_otp" />
+    <fragment
+        android:id="@+id/registrationSuccessFragment"
+        android:name="com.thales.idverification.modules.login.ui.RegistrationSuccessFragment"
+        android:label="fragment_registration_success"
+        tools:layout="@layout/fragment_registration_success" >
+        <action
+            android:id="@+id/action_registrationSuccessFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/registrationSuccessFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

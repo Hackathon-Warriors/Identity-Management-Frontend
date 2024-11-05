@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/add_more_surface_storage_loading_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_more_bottom_sheet_progress_layout_height"
+        layout="@layout/progress_layout"
+        android:visibility="gone"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/add_more_surface_storage_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="8dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/add_more_bottom_sheet_dialog_fragment_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_more_bottom_sheet_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textColor="#54D3FF"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:textColor="#0687F8"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/structures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Structures/Treatments"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/removeButton" />
+
+            <Spinner
+                android:id="@+id/structures_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/structures" />
+
+            <TextView
+                android:id="@+id/count_per_area_ha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Count / Area (ha)"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/structures_values" />
+
+            <EditText
+                android:id="@+id/count_per_area_ha_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/count_per_area_ha" />
+
+            <TextView
+                android:id="@+id/water_storage_potential_of_structure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="@string/add_more_surface_storage_water_storage_potential_of_structure_cr_lit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/count_per_area_ha_value" />
+
+            <ViewFlipper
+                android:id="@+id/water_storage_potential_of_structure_value_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/water_storage_potential_of_structure">
+
+                <EditText
+                    android:id="@+id/water_storage_potential_of_structure_value_editable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/librebaskerville_regular" />
+
+                <TextView
+                    android:id="@+id/water_storage_potential_of_structure_value_non_editable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/librebaskerville_regular"
+                    />
+
+            </ViewFlipper>
+
+            <TextView
+                android:id="@+id/actual_water_stored_in_structure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Actual water stored in structure"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/water_storage_potential_of_structure_value_view" />
+
+            <EditText
+                android:id="@+id/actual_water_stored_in_structure_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actual_water_stored_in_structure" />
+
+            <TextView
+                android:id="@+id/number_of_filling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of filling"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actual_water_stored_in_structure_value" />
+
+            <EditText
+                android:id="@+id/number_of_filling_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_filling" />
+
+            <TextView
+                android:id="@+id/total_water_stored_multiple_fillings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:width="250dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="@string/add_more_surface_storage_total_water_stored_multiple_fillings_cr_lit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_filling_value" />
+
+            <TextView
+                android:id="@+id/total_water_stored_multiple_fillings_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_filling_value"
+                />
+
+            <TextView
+                android:id="@+id/evaporation_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evaporation (%)"
+                android:width="250dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_water_stored_multiple_fillings" />
+
+            <TextView
+                android:id="@+id/evaporation_percentage_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_water_stored_multiple_fillings"
+                />
+
+            <TextView
+                android:id="@+id/total_water_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="@string/add_more_surface_storage_total_water_store_cr_lit"
+                android:width="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/evaporation_percentage" />
+
+            <TextView
+                android:id="@+id/total_water_store_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/evaporation_percentage"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

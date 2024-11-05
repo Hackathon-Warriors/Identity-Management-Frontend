@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/add_more_village_evaporation_loading_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_more_bottom_sheet_progress_layout_height"
+        layout="@layout/progress_layout"
+        android:visibility="gone"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/add_more_village_evaporation_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="8dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/add_more_bottom_sheet_dialog_fragment_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textColor="#54D3FF"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:textColor="#0687F8"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/type_of_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of area"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/removeButton" />
+
+            <Spinner
+                android:id="@+id/type_of_area_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_of_area" />
+
+            <TextView
+                android:id="@+id/area_in_ha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Area in ha"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_of_area_values" />
+
+            <EditText
+                android:id="@+id/area_in_ha_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_in_ha" />
+
+            <!--non editable fields - Start-->
+            <TextView
+                android:id="@+id/evaporation_in_mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:width="250dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Evaporation in mm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_in_ha_values" />
+
+            <TextView
+                android:id="@+id/evaporation_in_mm_values"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text=""
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/evaporation_in_mm"
+                />
+
+            <TextView
+                android:id="@+id/total_evaporation_in_tcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:width="250dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Total evaporation in tcm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/evaporation_in_mm_values" />
+
+            <TextView
+                android:id="@+id/total_evaporation_in_tcm_values"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text=""
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_evaporation_in_tcm"
+                />
+
+            <!--non editable fields - End -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+

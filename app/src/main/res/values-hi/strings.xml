@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">जल बजट</string>
+
+    <!-- Select Language Activity -->
+    <string name="select_language_title">भाषा चुने</string>
+    <string name="select_language_submit_button">ठीक</string>
+
+    <!-- Login Fragment -->
+    <string name="login_registration_title">LOGIN/REGISTER</string>
+    <string name="login_title">लॉग इन</string>
+    <string name="create_account_title">CREATE YOUR ACCOUNT</string>
+    <string name="login_phone_field_hint">फ़ोन नंबर</string>
+    <string name="login_otp_field_hint">ओटीपी</string>
+    <string name="login_instruction_otp_retry">Not received OTP? Retry after 3 mins</string>
+    <string name="login_error_incorrect_otp">Incorrect OTP. Please try again.</string>
+    <string name="login_submit_button">जमा करे</string>
+    <string name="login_signup_button">SIGN UP</string>
+    <string name="login_resend_otp_button">RESEND OTP</string>
+
+    <!-- Registration Fragment -->
+    <string name="registration_title">REGISTER</string>
+    <string name="registration_name_field_hint">Name</string>
+    <string name="registration_email_field_hint">Email ID (optional)</string>
+    <string name="registration_submit_button">SUBMIT</string>
+</resources>

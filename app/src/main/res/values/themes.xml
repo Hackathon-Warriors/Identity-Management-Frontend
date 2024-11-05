@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GeoTagging" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/text_dark</item>
+        <item name="colorOnPrimary">@color/text_dark</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green_dark</item>
+        <item name="colorSecondaryVariant">@color/green_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="actionBarTheme">@style/Theme.GeoTagging.PopupOverlay</item>
+    </style>
+
+
+    <style name="Theme.SplashTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+<!--        <item name="android:windowBackground">@drawable/splash_background</item>-->
+
+        // For full screen activity (optional)
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
+    <style name="Theme.GeoTagging.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GeoTagging.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/text_dark</item>
+    </style>
+
+    <style name="Theme.GeoTagging.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="navigationTheme">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorControlHighlight">@color/green_dark</item>
+    </style>
+
+    <style name="circleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="fontFamily">@font/librebaskerville_bold</item>
+    </style>
+</resources>

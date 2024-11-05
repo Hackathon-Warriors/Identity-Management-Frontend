@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.savedlocations.ImageDetailsActivity">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="400dp"
+        android:layout_height="550dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/no_image_available" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="9dp">
+
+        <Button
+            android:id="@+id/view_on_map_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button_style"
+            android:elevation="2dp"
+            android:fontFamily="@font/librebaskerville_regular"
+            android:text="@string/view_on_map"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entity_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        app:fontFamily="@font/librebaskerville_bold"
+        tools:text="Mango Tree"
+        />
+
+    <TextView
+        android:id="@+id/activity_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toBottomOf="@id/entity_name"
+        android:textSize="14sp"
+        app:fontFamily="@font/librebaskerville_regular"
+        tools:text="Plantation Drive"
+        />
+
+    <TextView
+        android:id="@+id/activity_description"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toBottomOf="@id/activity_name"
+        android:textSize="11sp"
+        app:fontFamily="@font/librebaskerville_italic"
+        tools:text="Mango tree is grown in July-Aug in rainfed areas."
+        />
+
+    <TextView
+        android:id="@+id/gps_coordinates"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toBottomOf="@id/activity_description"
+        android:textSize="11sp"
+        app:fontFamily="@font/librebaskerville_regular"
+        tools:text="Latitude: 28.60843, Longitude: 77.32802"
+        />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toBottomOf="@id/gps_coordinates"
+        android:textSize="11sp"
+        app:fontFamily="@font/librebaskerville_regular"
+        tools:text="Tarawade Vasti, Mohammadwadi, Pune"
+        />
+
+    <TextView
+        android:id="@+id/activity_date"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="9dp"
+        app:layout_constraintStart_toEndOf="@id/view_on_map_button"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        android:textSize="11sp"
+        app:fontFamily="@font/librebaskerville_regular"
+        tools:text="2023:07:02"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

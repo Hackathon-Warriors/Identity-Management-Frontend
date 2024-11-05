@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/splash_bg" />
+
+<!--    <item android:top="100dp">-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/splash_title"-->
+<!--            android:gravity="top" />-->
+<!--    </item>-->
+
+        <item android:drawable="@drawable/identity_verification_image" />
+
+<!--    <item>-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/identity_verification_home"-->
+<!--            android:gravity="center" />-->
+<!--    </item>-->
+
+<!--    <item android:bottom="50dp">-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/wotr_logo"-->
+<!--            android:gravity="bottom" />-->
+<!--    </item>-->
+
+</layer-list>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dashboard"
+    app:startDestination="@id/villagesListFragment">
+
+    <fragment
+        android:id="@+id/villagesListFragment"
+        android:name="com.thales.idverification.modules.dashboard.ui.HomeFragment"
+        android:label="fragment_villages_list"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_villagesListFragment_to_villageDataFragment2"
+            app:destination="@id/villageDataFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/villageDataFragment2"
+        android:name="com.thales.idverification.modules.dashboard.ui.VillageDataFragment"
+        android:label="fragment_village_data"
+        tools:layout="@layout/fragment_village_data" />
+    <!--        <action-->
+<!--            android:id="@+id/action_villagesListFragment_to_villageDataFragment"-->
+<!--            app:destination="@id/villageDataFragment" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/villageDataFragment"-->
+<!--        android:name="com.sevasahyog.geotagging.VillageDataFragment"-->
+<!--        android:label="fragment_village_data"-->
+<!--        tools:layout="@layout/fragment_village_data" />-->
+</navigation>

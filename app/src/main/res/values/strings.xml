@@ -1,0 +1,188 @@
+<!DOCTYPE resources [<!ENTITY water_measurement_unit "Cr. liter"><!ENTITY missing_field_message "Please enter a value for"><!ENTITY surface_storage_count_per_area "Count / Area (ha)"><!ENTITY surface_storage_water_storage_potential_of_structure "Water storage potential of structure"><!ENTITY surface_storage_actual_water_stored_in_structure "Actual water stored in structure"><!ENTITY surface_storage_number_of_fillings "Number of fillings"><!ENTITY surface_storage_data "Surface Storage data"><!ENTITY evaporation_data "Evaporation data"><!ENTITY village_data "Village data"><!ENTITY other_sources "Other Sources"><!ENTITY rainfall_details "Rainfall Details"><!ENTITY crop_details "Crop Details"><!ENTITY update_message "updated successfully"><!ENTITY add_message "added successfully">]>
+
+<resources>
+    <string name="app_name">Identity Verification</string>
+
+    <!-- Select Language Activity -->
+    <string name="select_language_title">SELECT LANGUAGE</string>
+    <string name="select_language_submit_button">SUBMIT</string>
+
+    <!-- Login Fragment -->
+    <string name="login_registration_title">LOGIN/REGISTER</string>
+    <string name="login_title">LOGIN TO CONTINUE</string>
+    <string name="create_account_title">CREATE YOUR ACCOUNT</string>
+    <string name="login_phone_field_hint">Phone number</string>
+    <string name="login_otp_field_hint">OTP</string>
+    <string name="login_instruction_otp_retry">Not received OTP? Retry after 3 mins</string>
+    <string name="login_error_incorrect_otp">Incorrect OTP. Please try again.</string>
+    <string name="login_submit_button">SUBMIT</string>
+    <string name="login_signup_button">SIGN UP</string>
+    <string name="login_resend_otp_button">RESEND OTP</string>
+
+    <!-- Registration Fragment -->
+    <string name="registration_title">REGISTER</string>
+    <string name="registration_name_field_hint">Name</string>
+    <string name="registration_email_field_hint">Email ID (optional)</string>
+    <string name="registration_submit_button">SUBMIT</string>
+
+    <!-- Enter OTP Fragment -->
+    <string name="enter_otp_title">VERIFY OTP</string>
+    <string name="enter_otp_field_hint">OTP</string>
+    <string name="enter_otp_instruction_otp_retry">Not received OTP? Retry after 3 mins</string>
+    <string name="enter_otp_error_incorrect_otp">Incorrect OTP. Please try again.</string>
+    <string name="enter_otp_submit_button">SUBMIT</string>
+    <string name="enter_otp_resend_button">RESEND</string>
+
+    <!-- Registration Success Fragment -->
+    <string name="registration_success_title">Registration\nSuccess</string>
+    <string name="registration_success_logon_button">LOGON</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard_drawer">DashboardDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_subtitle">User Name</string>
+    <string name="nav_header_subtitle_2">+91-9876543210</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_notifications">Notifications</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_crop_scenaarios">Crop scenarios</string>
+    <string name="menu_water_harvest_scenaarios">Water harvesting scenarios</string>
+    <string name="menu_weather_trends">Weather/precipitation trends</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="home_fragment_title">Identity Verification</string>
+
+
+    <!-- Dashboard - Village Data Fragment -->
+    <string name="sources_rainfall">Rainfall</string>
+    <string name="sources_soil_moisture_and_ground_water">Soil Moisture &amp; ground water</string>
+    <string name="sources_surface_storage">Surface Storage</string>
+    <string name="sources_other_sources">Other sources</string>
+    <string name="sources_total_water_available">Total water available</string>
+    <string name="sources_water_in_cr_lit">Water in &water_measurement_unit;</string>
+    <string name="village_use">Village use</string>
+    <string name="evaporation">Evaporation</string>
+    <string name="total_water_consumption">Total water consumption</string>
+
+    <!-- Rainfall Details Fragment -->
+    <string name="rainfall_details_rainfall">Rainfall</string>
+    <string name="rainfall_total_water_available_cr_lit">Total water available (&water_measurement_unit;)</string>
+
+    <!-- Moisture Details Fragment -->
+    <string name="moisture_details_soil_moisture_and_ground_water">Soil Moisture and Ground water</string>
+    <string name="moisture_details_soil_moisture_formula">Soil moisture : 30% of total water available from rainfall (&water_measurement_unit;)</string>
+    <string name="moisture_details_ground_water_formula">Ground water : 10% of total water available from rainfall (&water_measurement_unit;)</string>
+
+
+    <!-- Surface Storage Fragment -->
+    <string name="village_use_village_use">Domestic Use</string>
+    <string name="village_use_village_water_use">Domestic water use</string>
+    <string name="village_use_village_use_trend">Domestic use trend</string>
+
+    <string name="consumption_village_area">Domestic Use</string>
+    <string name="consumption_evaporation">Evaporation</string>
+    <string name="consumption_total_water_consumption">Total water consumption</string>
+
+    <string name="crop_plan_kharif_crops">Kharif Crops</string>
+    <string name="crop_plan_rabi_crops">Rabi Crops</string>
+
+    <!-- Surface Storage Fragment -->
+    <string name="surface_storage_surface_storage">Surface Storage</string>
+    <string name="surface_storage_surface_storage_trend">Surface Storage Trend</string>
+
+    <string name="surface_storage_structure_id">Structure Id</string>
+    <string name="surface_storage_structures">Structures</string>
+    <string name="surface_storage_count_per_area">&surface_storage_count_per_area;</string>
+    <string name="surface_storage_water_storage_potential_of_structure_per_unit">Water storage potential of structure per unit</string>
+    <string name="surface_storage_water_storage_potential_of_structure">Water storage potential of structure</string>
+    <string name="surface_storage_actual_water_stored_in_structure">Actual water stored in structure</string>
+    <string name="surface_storage_number_of_fillings">Number of fillings</string>
+    <string name="surface_storage_total_water_stored_with_multiple_fillings">Total water stored with multiple fillings</string>
+    <string name="surface_storage_evaporation_percentage">Evaporation (%)</string>
+    <string name="surface_storage_total_water_in_store">Total water in store (&water_measurement_unit;)</string>
+
+    <string name="surface_storage_count_per_area_missing_field_message">&missing_field_message; &surface_storage_count_per_area;</string>
+    <string name="surface_storage_water_storage_potential_of_structure_missing_field_message">&missing_field_message; &surface_storage_water_storage_potential_of_structure;
+        (&water_measurement_unit;)</string>
+    <string name="surface_storage_actual_water_stored_in_structure_missing_field_message">&missing_field_message; &surface_storage_actual_water_stored_in_structure;</string>
+    <string name="surface_storage_number_of_fillings_missing_field_message">&missing_field_message; &surface_storage_number_of_fillings;</string>
+
+    <string name="surface_storage_data_update_message">&surface_storage_data; &update_message;</string>
+    <string name="surface_storage_data_add_message">&surface_storage_data; &add_message;</string>
+    <string name="crop_details_data_update_message">&crop_details; &update_message;</string>
+    <string name="crop_details_data_add_message">&crop_details; &add_message;</string>
+
+
+    <!-- Crop Details Fragment -->
+    <string name="crop_details_crops">Crops</string>
+
+    <!-- Table Layout -->
+    <string name="table_layout_more_columns">More Columns</string>
+    <string name="table_layout_add_more">+ Add More</string>
+
+    <string name="evaporation_use_trend">Evaporation Trend</string>
+    <string name="evaporation_data_update_message">&evaporation_data; &update_message;</string>
+    <string name="evaporation_data_add_message">&evaporation_data; &add_message;</string>
+    <string name="village_data_update_message">&village_data; &update_message;</string>
+    <string name="village_data_add_message">&village_data; &add_message;</string>
+    <string name="other_sources_update_message">&other_sources; &update_message;</string>
+    <string name="other_sources_add_message">&other_sources; &add_message;</string>
+    <string name="rainfaill_details_update_message">&rainfall_details; &update_message;</string>
+    <string name="rainfall_details_add_message">&other_sources; &add_message;</string>
+
+    <!-- Surface Storage Fragment -->
+    <string name="other_sources">Other Sources</string>
+    <string name="other_sources_trend">Other Sources Trend</string>
+
+    <!-- Add More Bottom Sheet Surface Storage -->
+    <string name="add_more_surface_storage_water_storage_potential_of_structure_cr_lit">Water Storage potential of structure (&water_measurement_unit;)</string>
+    <string name="add_more_surface_storage_total_water_stored_multiple_fillings_cr_lit">Total water stored - multiple fillings (&water_measurement_unit;)</string>
+    <string name="add_more_surface_storage_total_water_store_cr_lit">Total water store (&water_measurement_unit;)</string>
+
+    <!-- Add More Bottom Sheet Other Sources -->
+    <string name="add_more_other_sources_total_water_import_cr_lit">Total water import (&water_measurement_unit;)</string>
+
+    <!-- Units -->
+    <string name="water_measurement_unit">&water_measurement_unit;</string>
+    <string name="add_data">Add data</string>
+    <string name="view_data">View Data</string>
+    <string name="enable_auto_rotate">Enable Auto-Rotate</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="error_string">Error</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="back_text">Back</string>
+    <string name="otp_message">\"Not received OTP? Retry after: \"</string>
+    <string name="otp_retry_text">Not received OTP? Retry now!</string>
+    <string name="attention_message">Attention</string>
+    <string name="new_feature_description">We will be launching these actions in the upcoming versions, stay tuned.</string>
+    <string name="dismiss_text">Dismiss</string>
+
+    <!-- Dialog Util -->
+    <string name="generic_error_title">Error</string>
+    <string name="generic_error_description">Something went wrong</string>
+    <string name="generic_error_button_text">Back</string>
+
+    <string name="success_dialog_title">Success</string>
+    <string name="success_dialog_button_text">Ok</string>
+
+    <string name="enable_auto_rotate_dialog_title">Enable Auto-Rotate</string>
+    <string name="enable_auto_rotate_dialog_description">Enable Auto-rotate on device to view more columns</string>
+    <string name="enable_location_description">Enable location on device to geo-tag a photo</string>
+    <string name="enable_auto_rotate_dialog_button_text">Dismiss</string>
+    <string name="enable_location_dialog_button_text">Dismiss</string>
+    <string name="source_id">Source Id</string>
+    <string name="source_name">Source Name</string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="start_capture">Start Capture</string>
+    <string name="stop_capture">Stop Capture</string>
+
+    <string name="view_on_map">View on Map</string>
+    <string name="gps_coordinates">&lt;b&gt;Latitude&lt;/b&gt;: %1$s, &lt;b&gt;Longitude&lt;/b&gt;: %2$s</string>
+
+</resources>

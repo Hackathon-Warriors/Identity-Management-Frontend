@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/add_more_crop_details_loading_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_more_bottom_sheet_progress_layout_height"
+        layout="@layout/progress_layout"
+        android:visibility="gone"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/add_more_crop_details_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="8dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/add_more_bottom_sheet_dialog_fragment_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textColor="#54D3FF"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:textColor="#0687F8"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cropName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crop Name"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/removeButton" />
+
+            <Spinner
+                android:id="@+id/crop_name_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cropName" />
+
+            <TextView
+                android:id="@+id/crop_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crop Area"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crop_name_values" />
+
+            <EditText
+                android:id="@+id/crop_area_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crop_area" />
+
+            <TextView
+                android:id="@+id/rainfed_or_flood_irrigation_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Rainfed or flood irrigation area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crop_area_value" />
+
+            <EditText
+                android:id="@+id/rainfed_or_flood_irrigation_area_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rainfed_or_flood_irrigation_area" />
+
+            <TextView
+                android:id="@+id/per_ha_cropwater_requirement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="250dp"
+                android:layout_marginTop="18dp"
+                android:text="Per hectare cropwater requirement"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rainfed_or_flood_irrigation_area_value" />
+
+            <TextView
+                android:id="@+id/per_ha_cropwater_requirement_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rainfed_or_flood_irrigation_area_value"
+                />
+
+            <TextView
+                android:id="@+id/water_required_for_rainfed_and_flood_irrigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Water required for rainfed and flood irrigation"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:width="250dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/per_ha_cropwater_requirement" />
+
+            <TextView
+                android:id="@+id/water_required_for_rainfed_and_flood_irrigation_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/per_ha_cropwater_requirement"
+                />
+
+            <TextView
+                android:id="@+id/micro_irrigation_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:width="250dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Micro-irrigation area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/water_required_for_rainfed_and_flood_irrigation" />
+
+            <TextView
+                android:id="@+id/micro_irrigation_area_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/water_required_for_rainfed_and_flood_irrigation"
+                />
+
+            <TextView
+                android:id="@+id/per_ha_cropwater_requirement_for_micro_irrigation_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Per hectare cropwater requirement for micro-irrigation area"
+                android:width="250dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/micro_irrigation_area" />
+
+            <TextView
+                android:id="@+id/per_ha_cropwater_requirement_for_micro_irrigation_area_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/micro_irrigation_area"
+                />
+
+            <TextView
+                android:id="@+id/water_required_for_micro_irrigation_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Water required for micro-irrigation area"
+                android:width="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/per_ha_cropwater_requirement_for_micro_irrigation_area" />
+
+            <TextView
+                android:id="@+id/water_required_for_micro_irrigation_area_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/per_ha_cropwater_requirement_for_micro_irrigation_area"
+                />
+
+            <TextView
+                android:id="@+id/total_water_required_for_crops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                android:text="Total water required for crops"
+                android:width="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/water_required_for_micro_irrigation_area" />
+
+            <TextView
+                android:id="@+id/total_water_required_for_crops_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/librebaskerville_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/water_required_for_micro_irrigation_area"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

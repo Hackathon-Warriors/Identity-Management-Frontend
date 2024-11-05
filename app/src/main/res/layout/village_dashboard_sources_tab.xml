@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/rainfall_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/water_in_cr_lit_heading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_heading"
+        />
+
+    <include
+        android:id="@+id/soil_moisture_and_ground_water_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/surface_storage_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/other_sources_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/total_water_available_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_summary_field"
+        />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:text="To know the water budget, enter source data."
+        android:textColor="@color/text_dark_hint"
+        android:textSize="13sp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/btnAddSourceData"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="@font/librebaskerville_regular"
+        android:padding="4dp"
+        android:paddingTop="6dp"
+        android:text="+ ADD SOURCE DATA"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_gravity="center" />
+
+</LinearLayout>

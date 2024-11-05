@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/water_in_cr_lit_heading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_heading"
+        />
+
+    <include
+        android:id="@+id/village_use_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/evaporation_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_field"
+        />
+
+    <include
+        android:id="@+id/total_water_consumption_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/village_dashboard_summary_field"
+        />
+
+</LinearLayout>
