@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "Identity Verification"
+rootProject.name = "QwikVerify"
 include ':app'

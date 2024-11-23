@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.exifinterface.media.ExifInterface
 import com.thales.idverification.databinding.ActivityUploadImageBinding
+import com.thales.idverification.modules.success.ui.SuccessActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 
@@ -89,21 +90,6 @@ class UploadImageActivity : AppCompatActivity() {
             exifInterface?.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
         )
 
-        viewBinding.apply {
-            latitude.apply {
-                value.layoutParams.width = ViewGroup.LayoutParams.WRAP_CONTENT
-                value.setText(gpsCoordinates[0])
-            }
-            longitude.apply {
-                value.layoutParams.width = ViewGroup.LayoutParams.WRAP_CONTENT
-                value.setText(gpsCoordinates[1])
-            }
-            activityDate.apply {
-                value.layoutParams.width = ViewGroup.LayoutParams.WRAP_CONTENT
-                value.setText(exifInterface?.getAttribute(ExifInterface.TAG_GPS_DATESTAMP))
-            }
-        }
-
     }
 
     private fun convertGpsCoordinates(
@@ -167,24 +153,19 @@ class UploadImageActivity : AppCompatActivity() {
         viewBinding = ActivityUploadImageBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.itemImg.setOnClickListener {
-            pick(it)
-        }
-
         viewBinding.apply {
-            latitude.field.text = "Latitude"
-            longitude.field.text = "Longitude"
-            address.field.text = "Address"
-            activityName.field.text = "Activity Name"
-            activityDate.field.text = "Activity Date"
-            entityName.field.text = "Entity Name"
-            entityType.field.text = "Entity Type"
-            description.field.text = "Description"
+            itemImg.setOnClickListener {
+                pick(it)
+            }
+            createItem.setOnClickListener {
+                startActivity(Intent(this@UploadImageActivity, SuccessActivity::class.java))
+                this@UploadImageActivity.finish()
+            }
         }
     }
 
     // Method for starting the activity for selecting image from phone storage
-    fun pick(view: View?) {
+    private fun pick(view: View?) {
         verifyStoragePermissions(this)
 
         val intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -196,7 +177,7 @@ class UploadImageActivity : AppCompatActivity() {
         resultLauncher.launch(Intent.createChooser(intent, "Open Gallery"))
     }
 
-    fun verifyStoragePermissions(activity: Activity?) {
+    private fun verifyStoragePermissions(activity: Activity?) {
         // Check if we have write permission
         val permission = ActivityCompat.checkSelfPermission(
             activity!!,

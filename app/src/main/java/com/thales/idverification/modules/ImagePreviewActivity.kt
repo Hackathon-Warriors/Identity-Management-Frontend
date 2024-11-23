@@ -2,6 +2,7 @@ package com.thales.idverification.modules
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.exifinterface.media.ExifInterface
@@ -25,6 +26,7 @@ import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.thales.idverification.databinding.ActivityImagePreviewBinding
+import com.thales.idverification.modules.uploadimage.UploadImageActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -129,7 +131,7 @@ class ImagePreviewActivity : AppCompatActivity() {
                             contentResolver.openFileDescriptor(uri, "rw")?.fileDescriptor
                                 ?.let { inputStream -> ExifInterface(inputStream) }
                         }
-                        getLocation()
+//                        getLocation()
                     } catch(ioe: IOException) {
                         ioe.printStackTrace()
                     }
@@ -137,6 +139,9 @@ class ImagePreviewActivity : AppCompatActivity() {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
+
+                    startActivity(Intent(this@ImagePreviewActivity, UploadImageActivity::class.java))
+                    this@ImagePreviewActivity.finish()
                 }
             }
         )

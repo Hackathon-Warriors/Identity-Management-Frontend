@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thales.idverification">
+    package="com.thales.idverification" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,35 +16,40 @@
         android:maxSdkVersion="28" />
 
     <application
-        android:name="com.thales.idverification.WaterBudgetApplication"
+        android:name=".WaterBudgetApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GeoTagging">
+        android:theme="@style/Theme.GeoTagging" >
         <activity
-            android:name="com.thales.idverification.modules.savedlocations.ImageDetailsActivity"
+            android:name=".modules.success.ui.SuccessActivity"
+            android:exported="false"
+            android:label="@string/title_activity_success"
+            android:theme="@style/Theme.GeoTagging" />
+        <activity
+            android:name=".modules.savedlocations.ImageDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.savedlocations.SavedLocationsActivity"
+            android:name=".modules.savedlocations.SavedLocationsActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.uploadimage.UploadImageActivity"
+            android:name=".modules.uploadimage.UploadImageActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.ImagePreviewActivity"
+            android:name=".modules.ImagePreviewActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.dashboard.ui.DashboardDrawerActivity"
+            android:name=".modules.dashboard.ui.DashboardDrawerActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.selectlanguage.SelectLanguageActivity"
+            android:name=".modules.selectlanguage.SelectLanguageActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.modules.splash.SplashActivity"
+            android:name=".modules.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.SplashTheme">
+            android:theme="@style/Theme.SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,10 +57,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.thales.idverification.modules.login.ui.LoginActivity"
+            android:name=".modules.login.ui.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.thales.idverification.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
     </application>
 

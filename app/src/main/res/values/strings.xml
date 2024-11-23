@@ -1,7 +1,7 @@
 <!DOCTYPE resources [<!ENTITY water_measurement_unit "Cr. liter"><!ENTITY missing_field_message "Please enter a value for"><!ENTITY surface_storage_count_per_area "Count / Area (ha)"><!ENTITY surface_storage_water_storage_potential_of_structure "Water storage potential of structure"><!ENTITY surface_storage_actual_water_stored_in_structure "Actual water stored in structure"><!ENTITY surface_storage_number_of_fillings "Number of fillings"><!ENTITY surface_storage_data "Surface Storage data"><!ENTITY evaporation_data "Evaporation data"><!ENTITY village_data "Village data"><!ENTITY other_sources "Other Sources"><!ENTITY rainfall_details "Rainfall Details"><!ENTITY crop_details "Crop Details"><!ENTITY update_message "updated successfully"><!ENTITY add_message "added successfully">]>
 
 <resources>
-    <string name="app_name">Identity Verification</string>
+    <string name="app_name">QwikVerify</string>
 
     <!-- Select Language Activity -->
     <string name="select_language_title">SELECT LANGUAGE</string>
@@ -55,7 +55,7 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Logout</string>
 
-    <string name="home_fragment_title">Identity Verification</string>
+    <string name="home_fragment_title">QwikVerify</string>
 
 
     <!-- Dashboard - Village Data Fragment -->
@@ -184,5 +184,6 @@
 
     <string name="view_on_map">View on Map</string>
     <string name="gps_coordinates">&lt;b&gt;Latitude&lt;/b&gt;: %1$s, &lt;b&gt;Longitude&lt;/b&gt;: %2$s</string>
+    <string name="title_activity_success">SuccessActivity</string>
 
 </resources>
