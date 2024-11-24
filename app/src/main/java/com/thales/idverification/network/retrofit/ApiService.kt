@@ -1,6 +1,7 @@
 package com.thales.idverification.network.retrofit
 
 import com.thales.idverification.network.*
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -110,5 +111,14 @@ interface ApiService {
 
     @GET("${ApiConstants.GET_DASHBOARD_DATA}/{villageId}/{scheduleId}")
     fun getDashboardData(@Path("villageId") villageId: String, @Path("scheduleId") scheduleId: String, @Header("Authorization") jwt: String?): Call<DashboardDataResponse>
+
+    @POST(ApiConstants.CHECK_LIVELINESS)
+    fun checkLiveliness(@Body checkLivelinessRequest: RequestBody): Call<CheckLiveLinessResponse>
+
+    @POST(ApiConstants.VERIFY_IDENTITY_DOCUMENT)
+    fun verifyIdentityDocument(@Body verifyIdentityDocumentRequest: RequestBody): Call<VerifyIdentityDocumentResponse>
+
+    @POST(ApiConstants.CHECK_BANK_STATEMENT)
+    fun checkBankStatement(@Body checkBankStatementRequest: RequestBody): Call<CheckBankStatementResponse>
 
 }

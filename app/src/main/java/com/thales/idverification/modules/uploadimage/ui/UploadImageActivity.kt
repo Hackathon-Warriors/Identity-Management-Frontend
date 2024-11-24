@@ -1,4 +1,4 @@
-package com.thales.idverification.modules.uploadimage
+package com.thales.idverification.modules.uploadimage.ui
 
 import android.Manifest
 import android.app.Activity
@@ -12,15 +12,21 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.exifinterface.media.ExifInterface
+import com.thales.idverification.R
 import com.thales.idverification.databinding.ActivityUploadImageBinding
-import com.thales.idverification.modules.success.ui.SuccessActivity
+import com.thales.idverification.modules.uploadbankstatement.ui.UploadBankStatementActivity
+import com.thales.idverification.modules.uploadimage.viewmodel.UploadImageViewModel
+import com.thales.idverification.utils.DialogUtil
+import com.thales.idverification.utils.FileUtil.createMultipartBody
+import com.thales.idverification.utils.ProgressBarUtil
+import com.thales.idverification.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
+import java.util.UUID
 
 @AndroidEntryPoint
 class UploadImageActivity : AppCompatActivity() {
@@ -30,6 +36,7 @@ class UploadImageActivity : AppCompatActivity() {
     private lateinit var selectedImage: Uri
     private var part_image: String? = null
 
+    private val uploadImageViewModel: UploadImageViewModel by viewModels()
 
     private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -69,84 +76,11 @@ class UploadImageActivity : AppCompatActivity() {
                         }
                         viewBinding.img.setImageBitmap(bitmap) // Set the ImageView with the bitmap of the image
                         cursor.close()
-
-                        populateFieldsFromImage()
                     }
                 }
             }
 
         }
-
-    private fun populateFieldsFromImage() {
-
-        val exifInterface =
-            contentResolver.openFileDescriptor(selectedImage, "r")?.fileDescriptor
-                ?.let { inputStream -> ExifInterface(inputStream) }
-
-        val gpsCoordinates = convertGpsCoordinates(
-            exifInterface?.getAttribute(ExifInterface.TAG_GPS_LATITUDE),
-            exifInterface?.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF),
-            exifInterface?.getAttribute(ExifInterface.TAG_GPS_LONGITUDE),
-            exifInterface?.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
-        )
-
-    }
-
-    private fun convertGpsCoordinates(
-        latitude: String?,
-        latitudeRef: String?,
-        longitude: String?,
-        longitudeRef: String?
-    ): Array<String> {
-        if ((latitude!=null) && (latitudeRef!=null) && (longitude!=null) && (longitudeRef!=null)) {
-
-            val convertedLatitude = if (latitudeRef == "N") {
-                convertToDegree(latitude)
-            } else {
-                0 - convertToDegree(latitude)
-            }
-
-            val convertedLongitude = if (longitudeRef == "E") {
-                convertToDegree(longitude)
-            } else {
-                0 - convertToDegree(longitude)
-            }
-
-            return arrayOf(convertedLatitude.toString(), convertedLongitude.toString())
-
-        } else {
-            return arrayOf("", "")
-        }
-    }
-
-    private fun convertToDegree(stringDMS: String): Float {
-
-        var result: Float
-
-        val DMS = stringDMS.split(",".toRegex(), 3).toTypedArray()
-        val stringD = DMS[0].split("/".toRegex(), 2).toTypedArray()
-
-        val D0 = stringD[0].toDouble()
-        val D1 = stringD[1].toDouble()
-
-        val floatD = D0 / D1
-
-        val stringM = DMS[1].split("/".toRegex(), 2).toTypedArray()
-
-        val M0: Double = stringM[0].toDouble()
-        val M1: Double = stringM[1].toDouble()
-
-        val floatM = M0 / M1
-
-        val stringS = DMS[2].split("/".toRegex(), 2).toTypedArray()
-        val S0: Double = stringS[0].toDouble()
-        val S1: Double = stringS[1].toDouble()
-
-        val floatS = S0 / S1
-
-        result = (floatD + floatM / 60 + floatS / 3600).toFloat()
-        return result
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,9 +92,53 @@ class UploadImageActivity : AppCompatActivity() {
                 pick(it)
             }
             createItem.setOnClickListener {
-                startActivity(Intent(this@UploadImageActivity, SuccessActivity::class.java))
-                this@UploadImageActivity.finish()
+                verifyIdentityDocument()
             }
+        }
+    }
+
+    private fun verifyIdentityDocument() {
+
+        ProgressBarUtil.showProgressBar(
+            viewBinding.uploadImageLoadingPanel.loadingPanel,
+            viewBinding.createItem
+        )
+
+        val verifyIdentityDocumentBody = createMultipartBody(
+            this@UploadImageActivity,
+            selectedImage,
+            1,
+            UUID.randomUUID(),
+            "poi_doc",
+            fileType = "file"
+        )
+
+        uploadImageViewModel.verifyIdentityDocument(
+            verifyIdentityDocumentBody
+        ).observe(this@UploadImageActivity) {
+            ProgressBarUtil.hideProgressBar(
+                viewBinding.uploadImageLoadingPanel.loadingPanel,
+                viewBinding.createItem
+            )
+
+            when(it.status) {
+                Status.SUCCESS -> {
+                    if(it.data == null && it.errorData != null) {
+                        if(it.errorData.errorReason != null) {
+                            showErrorMessage(it.errorData.errorReason)
+                        } else {
+                            showErrorMessage()
+                        }
+                    } else {
+                        showSuccessMessage("Document verified successfully!")
+                    }
+                }
+                Status.PROGRESS -> {}
+                Status.FAIL -> {
+                    showErrorMessage()
+                }
+            }
+
         }
     }
 
@@ -193,6 +171,29 @@ class UploadImageActivity : AppCompatActivity() {
         }
     }
 
+    private fun showErrorMessage(errorDescription: String = getString(R.string.generic_error_description)) {
+        DialogUtil.showCustomDialog(
+            this@UploadImageActivity,
+            layoutInflater,
+            DialogUtil.DialogType.ERROR,
+            getString(R.string.generic_error_title),
+            "$errorDescription\nPlease try again",
+            getString(R.string.generic_error_button_text)
+        )
+    }
+    private fun showSuccessMessage(message: String) {
+        DialogUtil.showCustomDialog(
+            this@UploadImageActivity,
+            layoutInflater,
+            DialogUtil.DialogType.DEFAULT,
+            "Success",
+            message,
+            "Continue"
+        ) {
+            startActivity(Intent(this@UploadImageActivity, UploadBankStatementActivity::class.java))
+            this@UploadImageActivity.finish()
+        }
+    }
     companion object {
         private const val REQUEST_CODE_KEY = "requestCode"
         private const val PICK_IMAGE_REQUEST = 9544

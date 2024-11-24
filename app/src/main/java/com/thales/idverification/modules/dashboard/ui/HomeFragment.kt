@@ -11,11 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.thales.idverification.R
 import com.thales.idverification.databinding.FragmentHomeBinding
-import com.thales.idverification.modules.ImagePreviewActivity
+import com.thales.idverification.modules.imagepreview.ui.ImagePreviewActivity
 import com.thales.idverification.modules.base.BaseFragment
 import com.thales.idverification.modules.dashboard.viewmodel.HomeViewModel
-import com.thales.idverification.modules.savedlocations.SavedLocationsActivity
-import com.thales.idverification.modules.uploadimage.UploadImageActivity
 import com.thales.idverification.utils.DialogUtil
 import dagger.hilt.android.AndroidEntryPoint
 

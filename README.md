@@ -1,6 +1,6 @@
-# QwikVerify Android App (2023)
+# QwikVerify Android App (2024)
 
-Water Budget Application is redesigned in Android Framwork where we have used Kotlin language for developement and used MVVM design pattern and following the SOLID principles for archtecture design where we can add and remove things easily.
+Water Budget Application is redesigned in Android Framework where we have used Kotlin language for developement and used MVVM design pattern and following the SOLID principles for archtecture design where we can add and remove things easily.
 
 
 # Application Technical Details 

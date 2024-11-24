@@ -21,5 +21,8 @@ object ApiConstants {
     const val GET_SCHEDULES_DATA = "schedules"
     const val GET_DASHBOARD_DATA = "wotr/overview"
     const val MASTER_DATA_URI = "master"
+    const val CHECK_LIVELINESS = "liveliness/check"
+    const val VERIFY_IDENTITY_DOCUMENT = "document/verify"
+    const val CHECK_BANK_STATEMENT = "statement/check"
 
 }

@@ -3,6 +3,8 @@ package com.thales.idverification.repository
 import androidx.lifecycle.LiveData
 import com.thales.idverification.network.*
 import com.thales.idverification.utils.WOTRCaller
+import okhttp3.RequestBody
+import retrofit2.http.Body
 import javax.inject.Inject
 
 class WOTRRepository @Inject constructor(private val networkHelper: INetworkHelper) {
@@ -254,5 +256,23 @@ class WOTRRepository @Inject constructor(private val networkHelper: INetworkHelp
         scheduleId: String
     ): LiveData<WOTRCaller<DashboardDataResponse>> {
         return networkHelper.getDashboardData(villageId, scheduleId)
+    }
+
+    fun checkLiveliness(
+        @Body checkLivelinessRequest: RequestBody
+    ): LiveData<WOTRCaller<CheckLiveLinessResponse>> {
+        return networkHelper.checkLiveliness(checkLivelinessRequest)
+    }
+
+    fun verifyIdentityDocument(
+        @Body verifyIdentityDocumentRequest: RequestBody
+    ): LiveData<WOTRCaller<VerifyIdentityDocumentResponse>> {
+        return networkHelper.verifyIdentityDocument(verifyIdentityDocumentRequest)
+    }
+
+    fun checkBankStatement(
+        @Body checkBankStatementRequest: RequestBody
+    ): LiveData<WOTRCaller<CheckBankStatementResponse>> {
+        return networkHelper.checkBankStatement(checkBankStatementRequest)
     }
 }

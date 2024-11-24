@@ -393,3 +393,24 @@ data class DashboardCropPlanData(
     val totalCropWaterRequired: Double? = 0.0,
     val cropConsumption: DashboardCropConsumptionData? = null,
 ):Parcelable
+
+@Parcelize
+data class CheckLiveLinessResponse(
+    val errorMsg: String,
+    val msg: String,
+    val success: Boolean
+):Parcelable
+
+@Parcelize
+data class VerifyIdentityDocumentResponse(
+    val errorMsg: String,
+    val msg: String,
+    val success: Boolean
+):Parcelable
+
+@Parcelize
+data class CheckBankStatementResponse(
+    val errorMsg: String,
+    val msg: String,
+    val success: Boolean
+):Parcelable

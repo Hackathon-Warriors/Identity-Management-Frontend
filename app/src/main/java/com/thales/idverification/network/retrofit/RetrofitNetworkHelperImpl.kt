@@ -8,9 +8,11 @@ import com.google.gson.GsonBuilder
 import com.thales.idverification.network.*
 import com.thales.idverification.utils.WOTRCaller
 import com.thales.idverification.utils.WOTRSharedPreference.sessionToken
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Body
 import javax.inject.Inject
 
 class RetrofitNetworkHelperImpl @Inject constructor(private val apiService: ApiService, private val wotrSharedPreferences: SharedPreferences) :
@@ -859,6 +861,121 @@ class RetrofitNetworkHelperImpl @Inject constructor(private val apiService: ApiS
             }
 
             override fun onFailure(call: Call<SchedulesData>, t: Throwable) {
+                mutableLiveData.postValue(WOTRCaller.fail(null, t.message.toString(), null))
+            }
+        })
+        return mutableLiveData
+    }
+
+    override fun checkLiveliness(
+        @Body checkLivelinessRequest: RequestBody
+    ): LiveData<WOTRCaller<CheckLiveLinessResponse>> {
+        val mutableLiveData = MutableLiveData<WOTRCaller<CheckLiveLinessResponse>>()
+        apiService.checkLiveliness(checkLivelinessRequest).enqueue(object : Callback<CheckLiveLinessResponse> {
+            override fun onResponse(
+                call: Call<CheckLiveLinessResponse>,
+                response: Response<CheckLiveLinessResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Log.d("live", "Success: "+response.body().toString())
+                    mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
+                } else {
+                    if (response.code() in 400..499) {
+                        val errorData = GsonBuilder().create().fromJson(
+                            response.errorBody()?.string(),
+                            NetworkErrorDataModel::class.java
+                        )
+                        Log.d("live", "400 to 499: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    } else {
+                        val errorData = NetworkErrorDataModel(
+                            response.message(),
+                            response.code().toString()
+                        )
+                        Log.d("live", "Error code other than 400: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<CheckLiveLinessResponse>, t: Throwable) {
+                Log.d("live", "Failed: "+ t.message.toString())
+                mutableLiveData.postValue(WOTRCaller.fail(null, t.message.toString(), null))
+            }
+        })
+        return mutableLiveData
+    }
+
+    override fun verifyIdentityDocument(
+        @Body verifyIdentityDocumentRequest: RequestBody
+    ): LiveData<WOTRCaller<VerifyIdentityDocumentResponse>> {
+        val mutableLiveData = MutableLiveData<WOTRCaller<VerifyIdentityDocumentResponse>>()
+        apiService.verifyIdentityDocument(verifyIdentityDocumentRequest).enqueue(object : Callback<VerifyIdentityDocumentResponse> {
+            override fun onResponse(
+                call: Call<VerifyIdentityDocumentResponse>,
+                response: Response<VerifyIdentityDocumentResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Log.d("live", "Success: "+response.body().toString())
+                    mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
+                } else {
+                    if (response.code() in 400..499) {
+                        val errorData = GsonBuilder().create().fromJson(
+                            response.errorBody()?.string(),
+                            NetworkErrorDataModel::class.java
+                        )
+                        Log.d("live", "400 to 499: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    } else {
+                        val errorData = NetworkErrorDataModel(
+                            response.message(),
+                            response.code().toString()
+                        )
+                        Log.d("live", "Error code other than 400: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<VerifyIdentityDocumentResponse>, t: Throwable) {
+                Log.d("live", "Failed: "+ t.message.toString())
+                mutableLiveData.postValue(WOTRCaller.fail(null, t.message.toString(), null))
+            }
+        })
+        return mutableLiveData
+    }
+
+    override fun checkBankStatement(checkBankStatementRequest: RequestBody): LiveData<WOTRCaller<CheckBankStatementResponse>> {
+        val mutableLiveData = MutableLiveData<WOTRCaller<CheckBankStatementResponse>>()
+        apiService.checkBankStatement(checkBankStatementRequest).enqueue(object : Callback<CheckBankStatementResponse> {
+            override fun onResponse(
+                call: Call<CheckBankStatementResponse>,
+                response: Response<CheckBankStatementResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Log.d("live", "Success: "+response.body().toString())
+                    mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
+                } else {
+                    if (response.code() in 400..499) {
+                        val errorData = GsonBuilder().create().fromJson(
+                            response.errorBody()?.string(),
+                            NetworkErrorDataModel::class.java
+                        )
+                        Log.d("live", "400 to 499: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    } else {
+                        val errorData = NetworkErrorDataModel(
+                            response.message(),
+                            response.code().toString()
+                        )
+                        Log.d("live", "Error code other than 400: $errorData")
+                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<CheckBankStatementResponse>, t: Throwable) {
+                Log.d("live", "Failed: "+ t.message.toString())
                 mutableLiveData.postValue(WOTRCaller.fail(null, t.message.toString(), null))
             }
         })
