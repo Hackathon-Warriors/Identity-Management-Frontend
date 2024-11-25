@@ -201,41 +201,4 @@ class UploadBankStatementActivity : AppCompatActivity() {
         }
     }
 
-
-//    // Method for starting the activity for selecting image from phone storage
-//    private fun pick(view: View?) {
-//        verifyStoragePermissions(this)
-//
-//        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
-//            addCategory(Intent.CATEGORY_OPENABLE)
-//            type = "application/pdf"
-//        }
-//
-//        val chooser = Intent.createChooser(intent, "Select document")
-//
-//        openDocumentLauncher.launch(chooser)
-//
-////        val galleryIntent = Intent.createChooser(intent, "Open Gallery")
-////        galleryIntent.putExtra(REQUEST_CODE_KEY, PICK_IMAGE_REQUEST)
-////
-////        resultLauncher.launch(Intent.createChooser(intent, "Open Gallery"))
-//    }
-//
-//    private fun verifyStoragePermissions(activity: Activity?) {
-//        // Check if we have write permission
-//        val permission = ActivityCompat.checkSelfPermission(
-//            activity!!,
-//            Manifest.permission.WRITE_EXTERNAL_STORAGE
-//        )
-//        if (permission != PackageManager.PERMISSION_GRANTED) {
-//            // We don't have permission so prompt the user
-//            ActivityCompat.requestPermissions(
-//                activity,
-//                PERMISSIONS_STORAGE,
-//                REQUEST_EXTERNAL_STORAGE
-//            )
-//        }
-//    }
-//
-
 }
