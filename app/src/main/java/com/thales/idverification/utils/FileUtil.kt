@@ -37,7 +37,7 @@ object FileUtil {
         }
 
         filePassword?.let {
-            builder.addFormDataPart("password", "password")
+            builder.addFormDataPart("password", filePassword)
         }
 
         // Add generic file part

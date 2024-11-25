@@ -29,7 +29,7 @@ import com.google.android.gms.tasks.CancellationTokenSource
 import com.thales.idverification.R
 import com.thales.idverification.databinding.ActivityImagePreviewBinding
 import com.thales.idverification.modules.imagepreview.viewmodel.ImagePreviewViewModel
-import com.thales.idverification.modules.uploadbankstatement.ui.UploadBankStatementActivity
+import com.thales.idverification.modules.uploadimage.ui.UploadImageActivity
 import com.thales.idverification.utils.DialogUtil
 import com.thales.idverification.utils.FileUtil
 import com.thales.idverification.utils.ProgressBarUtil
@@ -182,14 +182,14 @@ class ImagePreviewActivity : AppCompatActivity() {
 
             when(it.status) {
                 Status.SUCCESS -> {
-                    if(it.data == null && it.errorData != null) {
-                        if(it.errorData.errorReason != null) {
-                            showErrorMessage(it.errorData.errorReason)
+                    if(it.data != null) {
+                        if(it.data.error_msg != "") {
+                            showErrorMessage(it.data.error_msg)
                         } else {
-                            showErrorMessage()
+                            showSuccessMessage("Image verified successfully!")
                         }
                     } else {
-                        showSuccessMessage("Image verified successfully!")
+                        showErrorMessage()
                     }
                 }
                 Status.PROGRESS -> {}
@@ -278,7 +278,7 @@ class ImagePreviewActivity : AppCompatActivity() {
             message,
             "Continue"
         ) {
-            startActivity(Intent(this@ImagePreviewActivity, UploadBankStatementActivity::class.java))
+            startActivity(Intent(this@ImagePreviewActivity, UploadImageActivity::class.java))
             this@ImagePreviewActivity.finish()
         }
     }

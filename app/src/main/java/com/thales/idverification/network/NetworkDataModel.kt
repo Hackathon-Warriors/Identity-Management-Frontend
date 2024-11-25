@@ -396,21 +396,18 @@ data class DashboardCropPlanData(
 
 @Parcelize
 data class CheckLiveLinessResponse(
-    val errorMsg: String,
-    val msg: String,
+    val error_msg: String,
     val success: Boolean
 ):Parcelable
 
 @Parcelize
 data class VerifyIdentityDocumentResponse(
-    val errorMsg: String,
-    val msg: String,
+    val error_msg: String,
     val success: Boolean
 ):Parcelable
 
 @Parcelize
 data class CheckBankStatementResponse(
-    val errorMsg: String,
-    val msg: String,
+    val error_msg: String,
     val success: Boolean
 ):Parcelable

@@ -877,24 +877,12 @@ class RetrofitNetworkHelperImpl @Inject constructor(private val apiService: ApiS
                 response: Response<CheckLiveLinessResponse>
             ) {
                 if (response.isSuccessful) {
+                    val errorMsg = response.body()?.error_msg
                     Log.d("live", "Success: "+response.body().toString())
+                    Log.d("live", "Error: $errorMsg")
                     mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
                 } else {
-                    if (response.code() in 400..499) {
-                        val errorData = GsonBuilder().create().fromJson(
-                            response.errorBody()?.string(),
-                            NetworkErrorDataModel::class.java
-                        )
-                        Log.d("live", "400 to 499: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    } else {
-                        val errorData = NetworkErrorDataModel(
-                            response.message(),
-                            response.code().toString()
-                        )
-                        Log.d("live", "Error code other than 400: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    }
+                    mutableLiveData.postValue(WOTRCaller.success(null, null))
                 }
             }
 
@@ -916,24 +904,12 @@ class RetrofitNetworkHelperImpl @Inject constructor(private val apiService: ApiS
                 response: Response<VerifyIdentityDocumentResponse>
             ) {
                 if (response.isSuccessful) {
+                    val errorMsg = response.body()?.error_msg
                     Log.d("live", "Success: "+response.body().toString())
+                    Log.d("live", "Error: $errorMsg")
                     mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
                 } else {
-                    if (response.code() in 400..499) {
-                        val errorData = GsonBuilder().create().fromJson(
-                            response.errorBody()?.string(),
-                            NetworkErrorDataModel::class.java
-                        )
-                        Log.d("live", "400 to 499: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    } else {
-                        val errorData = NetworkErrorDataModel(
-                            response.message(),
-                            response.code().toString()
-                        )
-                        Log.d("live", "Error code other than 400: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    }
+                    mutableLiveData.postValue(WOTRCaller.success(null, null))
                 }
             }
 
@@ -953,24 +929,12 @@ class RetrofitNetworkHelperImpl @Inject constructor(private val apiService: ApiS
                 response: Response<CheckBankStatementResponse>
             ) {
                 if (response.isSuccessful) {
+                    val errorMsg = response.body()?.error_msg
                     Log.d("live", "Success: "+response.body().toString())
+                    Log.d("live", "Error: $errorMsg")
                     mutableLiveData.postValue(WOTRCaller.success(response.body(), null))
                 } else {
-                    if (response.code() in 400..499) {
-                        val errorData = GsonBuilder().create().fromJson(
-                            response.errorBody()?.string(),
-                            NetworkErrorDataModel::class.java
-                        )
-                        Log.d("live", "400 to 499: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    } else {
-                        val errorData = NetworkErrorDataModel(
-                            response.message(),
-                            response.code().toString()
-                        )
-                        Log.d("live", "Error code other than 400: $errorData")
-                        mutableLiveData.postValue(WOTRCaller.success(null, errorData))
-                    }
+                    mutableLiveData.postValue(WOTRCaller.success(null, null))
                 }
             }
 

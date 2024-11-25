@@ -2,7 +2,7 @@ package com.thales.idverification.network
 
 object ApiConstants {
 
-    const val BASE_URL = "http://wb.wotr.org.in/api/"
+    const val BASE_URL = "https://abd9-163-116-199-118.ngrok-free.app/api/v1/"
 
     const val VERIFY_USER = "user/verify"
     const val SEND_OTP = "otp/send"
@@ -22,7 +22,7 @@ object ApiConstants {
     const val GET_DASHBOARD_DATA = "wotr/overview"
     const val MASTER_DATA_URI = "master"
     const val CHECK_LIVELINESS = "liveliness/check"
-    const val VERIFY_IDENTITY_DOCUMENT = "document/verify"
-    const val CHECK_BANK_STATEMENT = "statement/check"
+    const val VERIFY_IDENTITY_DOCUMENT = "docs/poi/match"
+    const val CHECK_BANK_STATEMENT = "docs/statement/verify"
 
 }

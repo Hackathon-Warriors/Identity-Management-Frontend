@@ -77,6 +77,7 @@ class UploadBankStatementActivity : AppCompatActivity() {
             1,
             UUID.randomUUID(),
             "statement_doc",
+            filePassword = "password",
             fileType = "file"
         )
 
@@ -90,14 +91,14 @@ class UploadBankStatementActivity : AppCompatActivity() {
 
             when(it.status) {
                 Status.SUCCESS -> {
-                    if(it.data == null && it.errorData != null) {
-                        if(it.errorData.errorReason != null) {
-                            showErrorMessage(it.errorData.errorReason)
+                    if(it.data != null) {
+                        if(it.data.error_msg != "") {
+                            showErrorMessage(it.data.error_msg)
                         } else {
-                            showErrorMessage()
+                            showSuccessMessage("Bank Statement verified successfully!")
                         }
                     } else {
-                        showSuccessMessage("Bank Statement verified successfully!")
+                        showErrorMessage()
                     }
                 }
                 Status.PROGRESS -> {}

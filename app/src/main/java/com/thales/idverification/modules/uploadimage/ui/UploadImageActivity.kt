@@ -110,6 +110,7 @@ class UploadImageActivity : AppCompatActivity() {
             1,
             UUID.randomUUID(),
             "poi_doc",
+            filePassword = "password",
             fileType = "file"
         )
 
@@ -123,14 +124,14 @@ class UploadImageActivity : AppCompatActivity() {
 
             when(it.status) {
                 Status.SUCCESS -> {
-                    if(it.data == null && it.errorData != null) {
-                        if(it.errorData.errorReason != null) {
-                            showErrorMessage(it.errorData.errorReason)
+                    if(it.data != null) {
+                        if(it.data.error_msg != "") {
+                            showErrorMessage(it.data.error_msg)
                         } else {
-                            showErrorMessage()
+                            showSuccessMessage("Document verified successfully!")
                         }
                     } else {
-                        showSuccessMessage("Document verified successfully!")
+                        showErrorMessage()
                     }
                 }
                 Status.PROGRESS -> {}
